@@ -8,7 +8,7 @@ return (
   <p>Topic: {topic}</p>
   <p>Votes: {votes}</p>
   <p>Comments: {comment_count}</p>
-  <p>Date pusblished: {created_at}</p>
+  <p>Date published: {created_at}</p>
   <img src={article_img_url} alt="Article Image" />
 </section>
 )
