@@ -13,6 +13,6 @@ return (
   <img src={article_img_url} alt={`Image for ${title} Article`}/>
 </section>
 )
-
+ç
 }
 export default ArticlesCard;
