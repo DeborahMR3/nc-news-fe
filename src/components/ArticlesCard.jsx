@@ -9,7 +9,7 @@ return (
   <p>Votes: {votes}</p>
   <p>Comments: {comment_count}</p>
   <p>Date published: {created_at}</p>
-  <img src={article_img_url} alt="Article Image" />
+  <img src={article_img_url} alt={`Image for ${title} Article`}/>
 </section>
 )
 
