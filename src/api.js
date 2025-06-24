@@ -11,12 +11,12 @@ export function getArticles() {
     });
 }
 
-export function patchArticleVotes(article_id, numberOfVotes) {
+export function patchArticleVotes(article_id, inc_votes) {
 
   return fetch(`https://deborah-nc-news.onrender.com/api/articles/${article_id}`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ numberOfVotes }),
+    body: JSON.stringify({ inc_votes }),
   })
   .then((res) => {
       if (!res.ok) {

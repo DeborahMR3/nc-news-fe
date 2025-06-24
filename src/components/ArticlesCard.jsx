@@ -5,18 +5,23 @@ import { patchArticleVotes } from "../api";
 function ArticlesCard(props) {
   const { title, author, topic, created_at, votes, comment_count, article_img_url, article_id  } = props.article
   const publishedDate = new Date(created_at);
-  const [votes, setVotes] = useState(props.article.votes)
+  const [currentVotes, setVotes] = useState(props.article.votes)
 
    console.log(props.article)
 
 
-function handleVote(voteChange) {
-  setVotes((current) => current + voteChange); // curr é o valor atual de votos
-  patchArticleVotes(article_id, voteChange)
-    .catch(() => {
-      setVotes((current) => current - voteChange); // rollback se tiver dado errad0
-    });
-}
+  function upvote() {
+      setVotes((currentVotes) => currentVotes + 1);
+      patchArticleVotes(article_id, 1)
+        .catch(() => setVotes((currentVotes) => currentVotes - 1)); // rollback
+  }
+
+  function downvote() {
+      setVotes((currentVotes) => currentVotes - 1);
+      patchArticleVotes(article_id, -1)
+        .catch(() => setVotes((currentVotes) => currentVotes + 1)); //rollback caso de algum erro
+  }
+
 
   return (
   <section className="article-card">
@@ -28,12 +33,12 @@ function handleVote(voteChange) {
     <p>Date published: {publishedDate.toLocaleDateString()}</p>
     <img src={article_img_url} alt={`Image for ${title} Article`}/>
   </Link>
-    <p>Votes: {votes}</p>
-    <button className="vote-button" onClick={handleVote(1)}>Click to Upvote +</button>
-    <button className="vote-button" onClick={() => setVotes(votes + 1)}>Click to Upvote +</button>
-    <button className="vote-button"onClick={() => setVotes(votes - 1)}>Click to Downvote -</button>
+    <p>Votes: {currentVotes}</p>
+    <button className="vote-button" onClick={upvote}>Click to Upvote +</button>
+    <button className="vote-button" onClick={downvote}>Click to Downvote -</button>
   </section>
   );
+
 }
 
 export default ArticlesCard;
