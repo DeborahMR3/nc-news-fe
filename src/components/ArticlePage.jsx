@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import ArticlesCard from "./ArticlesCard";
+import CommentsList from "./CommentsList";
 
 function ArticlePage() {
   const { article_id } = useParams();
@@ -35,9 +36,11 @@ if (!article) return null;
 
 
  return (
-
+// posso usar ao inves de div ou section, só serve para o React
+<>
   <ArticlesCard article={article} /> // passo o article como prop para ArticleCard
-
+  <CommentsList article_id={article_id} /> //passo o article_id como prop para CommentsList
+</>
  )
 }
 
