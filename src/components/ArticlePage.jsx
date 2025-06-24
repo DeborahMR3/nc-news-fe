@@ -36,7 +36,6 @@ if (!article) return null;
 
 
  return (
-// posso usar ao inves de div ou section, só serve para o React
 <>
   <ArticlesCard article={article} />
   {/* // passo o article como prop para ArticleCard */}
