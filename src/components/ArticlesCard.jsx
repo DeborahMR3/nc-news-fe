@@ -4,7 +4,7 @@ function ArticlesCard(props) {
   const publishedDate = new Date(created_at);
 return (
 <section>
-  <h1>Title: {title}</h1>
+  <h2>{title}</h2>
   <p>Author: {author}</p>
   <p>Topic: {topic}</p>
   <p>Votes: {votes}</p>
@@ -13,6 +13,5 @@ return (
   <img src={article_img_url} alt={`Image for ${title} Article`}/>
 </section>
 )
-ç
 }
 export default ArticlesCard;
