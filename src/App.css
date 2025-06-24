@@ -92,3 +92,10 @@ img {
   margin: 1rem auto;
   border-radius: 8px;
 }
+
+.comment-card {
+  background: #f5f5fa;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
