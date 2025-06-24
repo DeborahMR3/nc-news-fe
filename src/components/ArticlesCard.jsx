@@ -5,7 +5,7 @@ function ArticlesCard(props) {
    console.log(props.article)
 
   return (
-  <section>
+  <section className="article-card">
     <h2>{title}</h2>
     <p>Author: {author}</p>
     <p>Topic: {topic}</p>

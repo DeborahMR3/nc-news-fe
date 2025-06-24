@@ -26,7 +26,7 @@ useEffect(() => {
     setIsLoading(false);
   })
 
-}, [article_id]);
+}, [article_id])
 
 if (isLoading) return <p>Loading comments...</p>
 if (error) return <p>{error}</p>
