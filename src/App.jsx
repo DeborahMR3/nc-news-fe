@@ -1,13 +1,20 @@
 import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import ArticlesList from "./components/ArticlesList";
+import ArticlePage from "./components/ArticlePage";
+
 
 function App() {
 
   return (
-<section>
-   <h1>Deborah NC News - Articles</h1>
-   <ArticlesList />
-</section>
+  <BrowserRouter>
+    <h1>Deborah NC News - Articles</h1>
+    <Routes>
+        <Route path="/" element={<ArticlesList />} />
+         <Route path="/articles/:article_id" element={<ArticlePage />} />
+    </Routes>
+  </BrowserRouter>
 )
 }
 
