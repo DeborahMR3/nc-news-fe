@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 
 import { useState, useEffect } from "react";
 
+import ArticlesCard from "./ArticlesCard";
+
 function ArticlePage() {
   const { article_id } = useParams();
 
@@ -33,9 +35,10 @@ if (!article) return null;
 
 
  return (
-  <section>
-    <h2>Article Title: {article.title}</h2>
-  </section>
+
+  <ArticlesCard article={article} /> // passo o article como prop para ArticleCard
 
  )
 }
+
+export default ArticlePage;
