@@ -9,8 +9,8 @@ function ArticlesCard(props) {
     <h2>{title}</h2>
     <p>Author: {author}</p>
     <p>Topic: {topic}</p>
-    <p>Votes: {votes}</p>
-    <p>Comments: {comment_count}</p>
+    {/* <p>Votes: {votes}</p> */}
+    {/* <p>Comments: {comment_count}</p> */}
     <p>Date published: {publishedDate.toLocaleDateString()}</p>
     <img src={article_img_url} alt={`Image for ${title} Article`}/>
   </section>
