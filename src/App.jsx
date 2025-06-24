@@ -9,12 +9,15 @@ function App() {
 
   return (
   <BrowserRouter>
-    <h1>Deborah NC News - Articles</h1>
+    <h1 className="page-title">Deborah NC News - Articles</h1>
+    <div className="container">
     <Routes>
         <Route path="/" element={<ArticlesList />} />
-         <Route path="/articles/:article_id" element={<ArticlePage />} />
+        <Route path="/articles/:article_id" element={<ArticlePage />} />
     </Routes>
+    </div>
   </BrowserRouter>
+
 )
 }
 

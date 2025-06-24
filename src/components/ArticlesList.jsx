@@ -30,7 +30,7 @@ function ArticlesList() {
     return <p>Could not load Articles</p>;
   }
   return (
-    <section>
+    <section className="articles-list">
       {articles.map((articleItem) => {
         return (
           <ArticlesCard key={articleItem.article_id}

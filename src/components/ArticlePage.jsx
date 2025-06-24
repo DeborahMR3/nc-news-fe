@@ -21,7 +21,7 @@ function ArticlePage() {
       return res.json();
     })
     .then((dataFromApi) => {
-      setArticle(dataFromApi);
+      setArticle(dataFromApi.article);
       setError(false)
     })
     .catch(() => setError("Erro ao carregar artigo"))
