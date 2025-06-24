@@ -7,18 +7,28 @@ function ArticlesCard(props) {
   const publishedDate = new Date(created_at);
   const [currentVotes, setVotes] = useState(props.article.votes)
 
-   console.log(props.article)
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
 
+   console.log(props.article)
 
   function upvote() {
       setVotes((currentVotes) => currentVotes + 1);
       patchArticleVotes(article_id, 1)
-        .catch(() => setVotes((currentVotes) => currentVotes - 1)); // rollback
+      .then(() => {
+        setError(null);
+        setSuccess(true);
+      })
+      .catch(() => setVotes((currentVotes) => currentVotes - 1)); // rollback
   }
 
   function downvote() {
       setVotes((currentVotes) => currentVotes - 1);
       patchArticleVotes(article_id, -1)
+        .then(() => {
+          setError(true);
+          setSuccess(false);
+        })
         .catch(() => setVotes((currentVotes) => currentVotes + 1)); //rollback caso de algum erro
   }
 
@@ -36,6 +46,10 @@ function ArticlesCard(props) {
     <p>Votes: {currentVotes}</p>
     <button className="vote-button" onClick={upvote}>Click to Upvote +</button>
     <button className="vote-button" onClick={downvote}>Click to Downvote -</button>
+
+    {error && <p className="error">{error}</p>}
+    {/* {success && <p className="success">Your vote has been added!</p>} */}
+
   </section>
   );
 
