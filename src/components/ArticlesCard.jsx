@@ -49,7 +49,6 @@ function ArticlesCard(props) {
 
     {error && <p className="error">{error}</p>}
     {/* {success && <p className="success">Your vote has been added!</p>} */}
-
   </section>
   );
 
