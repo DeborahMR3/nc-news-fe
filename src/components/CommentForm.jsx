@@ -19,7 +19,8 @@ function CommentForm() {
     <form onSubmit={handleSubmit}>
       <label htmlFor="comment">Insert your comment here:</label>
       <textarea name="comment" id="comment" value={comment} onChange={handleChange}></textarea>
-      <button type="submit">Send Comment</button>
+      <button type="submit" disabled={comment.trim() === ""}>Click to send your comment</button>
+      {/* desativa o botao se nao tiver nada escrito alem de espacos */}
     </form >
   )
 }

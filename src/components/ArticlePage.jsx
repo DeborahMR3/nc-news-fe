@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 import ArticlesCard from "./ArticlesCard";
 import CommentsList from "./CommentsList";
+import CommentForm from "./CommentForm";
 
 function ArticlePage() {
   const { article_id } = useParams();
@@ -41,6 +42,7 @@ if (!article) return null;
   {/* // passo o article como prop para ArticleCard */}
   <CommentsList article_id={article_id} />
   {/* //passo o article_id como prop para CommentsList */}
+  <CommentForm />
 </>
  )
 }
