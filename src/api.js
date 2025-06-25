@@ -31,3 +31,18 @@ export function patchArticleVotes(article_id, inc_votes) {
     return article;
   });
 };
+
+export function postComment(article_id, newComment) {
+  return fetch(`https://deborah-nc-news.onrender.com/api/articles/${article_id}/comments`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(newComment),
+  })
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Failed to post your comment");
+      }
+      return res.json();
+    })
+    .then((data) => data.comment); // retorna o comentário criado
+}
