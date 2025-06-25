@@ -42,7 +42,7 @@ if (!article) return null;
   {/* // passo o article como prop para ArticleCard */}
   <CommentsList article_id={article_id} />
   {/* //passo o article_id como prop para CommentsList */}
-  <CommentForm />
+  <CommentForm article_id={article_id} />
 </>
  )
 }
