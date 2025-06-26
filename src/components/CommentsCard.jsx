@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { deleteComment } from "../api";
 
+import { removeDeletedCommentFromLits } from "./CommentsList"
+
 function CommentsCard({ comment }) {
   const { author, created_at, body, votes, comment_id } = comment;
   const publishedDate = new Date(created_at);
@@ -23,6 +25,7 @@ function handleDelete() {
   deleteComment(comment_id)
   alert("Your comment has been deleted!");
   // aqui o commentario so some se eu der refresh na pagina
+  removeDeletedCommentFromList(comment_id)
 }
 
   return (
@@ -32,7 +35,7 @@ function handleDelete() {
       </p>
       <p>{body}</p>
       <p>Votes: {votes}</p>
-      {canDeleteComment(user, comment) && <button onClick={handleDelete} className="delete-comment-button">Delete this comment</button>}
+      {canDeleteComment(user, comment) && <button onClick={handleDelete } className="delete-comment-button">Delete this comment</button>}
     </div>
   );
 }

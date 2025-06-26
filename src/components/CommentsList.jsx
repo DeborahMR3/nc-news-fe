@@ -32,8 +32,7 @@ useEffect(() => {
 // funcao para remove deleted comment from list display
 
 
-function removeDeletedCommentFromList(comment_id_argument) {
-  data.comments = currentComments
+function removeDeletedCommentFromList() {
   setComments((currentComments) => {
     return currentComments.filter((eachComment) => eachComment.comment_id !== comment_id_argument)
   })
