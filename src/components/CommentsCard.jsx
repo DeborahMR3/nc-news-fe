@@ -13,7 +13,7 @@ function canDeleteComment(user, comment) {
   const commentAuthor = comment.author;  // pega o autor do comentário
   if (loggedUser === commentAuthor) {
     return true;
-
+  alert("your comment has been deleted")
   } else {
     return false;
   }
