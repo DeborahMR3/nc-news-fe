@@ -32,12 +32,11 @@ useEffect(() => {
 // funcao para remove deleted comment from list display
 
 
-function removeDeletedCommentFromList() {
+function removeDeletedCommentFromList(deleted_id) {
   setComments((currentComments) => {
-    return currentComments.filter((eachComment) => eachComment.comment_id !== comment_id_argument)
+    return currentComments.filter((eachComment) => eachComment.comment_id !== deleted_id)
   })
 // vai filtrar e retornar so os comments que nao sejam o que tem comment_id_argument como comment_id
-
 }
 
 if (isLoading) return <p>Loading comments...</p>
@@ -47,7 +46,10 @@ if (error) return <p>{error}</p>
 return (
   <section className="comments-list">
     {comments.map((comment) => (
-      <CommentsCard key={comment.comment_id} comment={comment} />
+      <CommentsCard
+      key={comment.comment_id}
+      comment={comment}
+      removeDeletedCommentFromList={removeDeletedCommentFromList}/>
     ))}
   </section>
 )
