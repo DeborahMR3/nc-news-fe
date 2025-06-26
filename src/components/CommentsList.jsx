@@ -28,24 +28,24 @@ useEffect(() => {
 
 }, [article_id])
 
+
+// funcao para remove deleted comment from list display
+
+
+function removeDeletedCommentFromList(comment_id_argument) {
+  data.comments = currentComments
+  setComments((currentComments) => {
+    return currentComments.filter((eachComment) => eachComment.comment_id !== comment_id_argument)
+  })
+// vai filtrar e retornar so os comments que nao sejam o que tem comment_id_argument como comment_id
+
+}
+
 if (isLoading) return <p>Loading comments...</p>
 if (error) return <p>{error}</p>
   // preciso pegar o article_id que esta em ArticlePage
 
 return (
-  // <ul>
-  //   {comments.map(comment => {
-  //     const publishedDate = new Date(comment.created_at);
-  //     return (
-  //       <li key={comment.comment_id}  className="comment-card">
-  //         <p><strong>{comment.author}</strong> - {publishedDate.toLocaleDateString()}</p>
-  //         <p>{comment.body}</p>
-  //         <p>Votes: {comment.votes}</p>
-  //       </li>
-  //     );
-  //   })}
-  // </ul>
-
   <section className="comments-list">
     {comments.map((comment) => (
       <CommentsCard key={comment.comment_id} comment={comment} />

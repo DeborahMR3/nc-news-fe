@@ -12,16 +12,17 @@ function canDeleteComment(user, comment) {
   const loggedUser = user.username; // pega o nome do usuário logado
   const commentAuthor = comment.author;  // pega o autor do comentário
   if (loggedUser === commentAuthor) {
-    return true;
-  alert("your comment has been deleted")
+    return true;  //se for igual pode delete
   } else {
     return false;
   }
+
 }
 
 function handleDelete() {
   deleteComment(comment_id)
   alert("Your comment has been deleted!");
+  // aqui o commentario so some se eu der refresh na pagina
 }
 
   return (
