@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import { Link } from "react-router-dom";  // have to omport to link to specific topic page
+
 function TopicsList() {
  // vou buscar a lista de topicos
   const [topics, setTopics] = useState([]);
@@ -23,7 +25,13 @@ return (
 <p>Topics:</p>
 <ul>
   {topics.map((topic) => (
-  <li key={topic.slug}>{topic.slug} topics={topics}</li>
+  <li key={topic.slug}>
+    <Link to={`/topics/${topic.slug}`}>
+    <strong>
+      {topic.slug}
+    </strong>
+    </Link>
+  </li>
   ))}
 </ul>
 </section>
