@@ -6,6 +6,9 @@ import ArticlesCard from "./ArticlesCard";
 import CommentsList from "./CommentsList";
 import CommentForm from "./CommentForm";
 
+import NavBar from "./NavBar";
+
+
 function ArticlePage() {
   const { article_id } = useParams();
 
