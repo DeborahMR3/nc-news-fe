@@ -4,6 +4,7 @@ import { UserProvider } from './contexts/UserContext';
 
 import ArticlesList from "./components/ArticlesList";
 import ArticlePage from "./components/ArticlePage";
+import TopicsList from './components/TopicsList';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
     <Routes>
         <Route path="/" element={<ArticlesList />} />
         <Route path="/articles/:article_id" element={<ArticlePage />} />
+        <Route path="/topics" element={<TopicsList />} />
     </Routes>
     </div>
     </UserProvider>
